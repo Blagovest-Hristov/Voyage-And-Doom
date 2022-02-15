@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5989128451409017888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5989128451409017890}
+  - component: {fileID: 5989128451409017889}
+  - component: {fileID: 3236609697602336803}
+  m_Layer: 0
+  m_Name: Pathfinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5989128451409017890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5989128451409017888}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 178, y: 19.9, z: -12.434706}
+  m_LocalScale: {x: 2.355854, y: 1.5971893, z: 1.5971893}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5989128451409017889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5989128451409017888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAAAQIeywfU2YfgIAADgFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzoWxMQTTW2sI6SEJE9rJxRdhrbEGWfJIcoBk+O9dyTZ2qS+I9/bj7dPaX4RLU0Fmld5ozp4VA/J9RNyZfBv15BOc6UHJHf+ELuadM1u4IOpj3qjlCvHQpRlVgtU8+yEPwgUHCNaS50qXa3aARBlrEM6pMICUVtZlS4S+RuSMP+OlS7ngabpwp088LYPRFY8ZSAu6D53PJtMoCpcPUZsxe5gs4ngRt2nj2WTpntk09vm1zAQtK2BumL5MFCwnAT5R2JaJwqmPlzhvG+qoTAnBTSuW2EvlzUhoZWocFQMYpzi8VxiiMkQK4IfCulmG+a95bsC25mh6WXGNNjaFyU/VeFtSc2w0flBRu1bT+YOX1RR9/o8fh57OtSqfur5h4HrYgmfHN3rJqLED84fwaqDdW3Wi4kj3At4LkC9qo1UtGZJW1y61NjBd9X9voyUFZMceb6TegXXVe9/ddXfTboarn/6cCF7uHTWZNcBOKG+5XxDQeDm/ULBfH9OWQNSp+GPgNz0M96wlHrk2Fql2Sunk7VWtXShZe8/cNLVNlJbg4VZ0BZIKe9liGXt/hXfcoO0d80jdG9U2b7nuRblL8XAfHwR31FadbpdlCnV6BlO81lZwCb1oR7ygT4mSstmwoSdd2q7WOc0GaYeas39Xi8QxhCGjEM/iZTyHfBzvw2jO8NVbBAwW8ZL43eMS56Ri2wht7cFbk31xiXvWfWhGG00rv+1M09OGf5ZqYDmXudplGkC+NhVuwkFjE3wx2ZpxNGgH1nLp75t8pUSo7AgsvRVK/aTrs9U07aukpOIfyjokJYn/sqTEwbdd3mr44HByzbtiV3L9C1BLAwQUAAAICAAAECHsqpBAj20AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0koVFqqFhSmKqhYmFpYVpapquRZKhsWmKpZmxuUFKqrmFpVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAECHssH1NmH4CAAA4BQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAECHsqpBAj20AAAB4AAAACQAkAAAAAAAAAAAAAADLAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAIMDAAAAAA==
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 1
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 10
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
+--- !u!114 &3236609697602336803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5989128451409017888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df6739f0d761998479041d5bf91d26e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
