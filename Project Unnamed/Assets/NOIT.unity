@@ -5890,9 +5890,21 @@ PrefabInstance:
       value: Goblin_Enemy (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2144270567969399460, guid: 8f3608e182d6f464ead14fdf99380d78, type: 3}
+      propertyPath: Speed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2144270567969399460, guid: 8f3608e182d6f464ead14fdf99380d78, type: 3}
       propertyPath: Target
       value: 
       objectReference: {fileID: 388297778}
+    - target: {fileID: 2144270567969399460, guid: 8f3608e182d6f464ead14fdf99380d78, type: 3}
+      propertyPath: NextWayPointDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2144270567969399461, guid: 8f3608e182d6f464ead14fdf99380d78, type: 3}
+      propertyPath: AttackRate
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2144270567969399462, guid: 8f3608e182d6f464ead14fdf99380d78, type: 3}
       propertyPath: m_RootOrder
       value: 1
