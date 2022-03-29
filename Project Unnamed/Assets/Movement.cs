@@ -53,7 +53,7 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetBool("Jump", true);
-            jump = true;
+          
         }
 
         if (rigidbody.velocity.y < -0.1)

@@ -6317,7 +6317,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7916730315828568580}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b59cc403758d5444963e8dfc787c1ba, type: 3}
   m_Name: 
@@ -6350,6 +6350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7916730315828568589}
   - component: {fileID: 7916730315828568578}
+  - component: {fileID: 7916730315828568581}
   - component: {fileID: 7916730315828568579}
   - component: {fileID: 7916730315828568576}
   - component: {fileID: 7916730315828568577}
@@ -6363,6 +6364,40 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7916730315828568581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7916730315828568580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbfb23717f7dee14688bccda60b77b9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  _detectorCount: 2
+  _detectionRayLength: 3.36
+  _rayBuffer: 0.185
+  _acceleration: 5
+  _moveClamp: 13
+  _deAcceleration: 60
+  _apexBonus: -0.33
+  _fallClamp: -8.2
+  _minFallSpeed: 80
+  _maxFallSpeed: 120
+  _jumpHeight: 20.07
+  _jumpApexThreshold: 0.3
+  _coyoteTimeThreshold: 0.1
+  _jumpBuffer: 0.1
+  _jumpEndEarlyGravityModifier: 3
+  _freeColliderIterations: 5
 --- !u!50 &7916730315828568582
 Rigidbody2D:
   serializedVersion: 4

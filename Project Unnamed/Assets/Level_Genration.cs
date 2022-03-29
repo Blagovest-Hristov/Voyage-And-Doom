@@ -31,7 +31,7 @@ public class Level_Genration : MonoBehaviour
 
     private Transform a;
 
-    private List<Vector2> enemySpawn = new List<Vector2>(); 
+    private List<Vector2> enemySpawn = new List<Vector2>();
     void Start()
     {
         minX = startingPos[0].position.x;
@@ -39,7 +39,7 @@ public class Level_Genration : MonoBehaviour
         minY = startingPos[0].position.y - 45;
         transform.position = new Vector3(0, 0, 33);
         int randStartingPos = Random.Range(0, startingPos.Length);
-        Instantiate(spawn, startingPos[randStartingPos].position, Quaternion.Euler(0,180,0));
+        Instantiate(spawn, startingPos[randStartingPos].position, Quaternion.Euler(0, 180, 0));
         character.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         character.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         Instantiate(pathfinder, transform.position, Quaternion.identity);
@@ -47,7 +47,7 @@ public class Level_Genration : MonoBehaviour
         a = startingPos[randStartingPos];
 
         enemy.SetActive(true);
-       
+
         direction = 1;
         transform.position = startingPos[randStartingPos].position;
         next = Random.Range(1, 4);
@@ -72,8 +72,8 @@ public class Level_Genration : MonoBehaviour
     internal int prev = 1;
     internal int rotate = 0;
     void Move()
-    { 
-       
+    {
+
         if (direction == 1 || direction == 2)
         {
             if (transform.position.x <= maxX)
@@ -86,7 +86,7 @@ public class Level_Genration : MonoBehaviour
             }
             else
             {
-                direction = maxRnd-1;
+                direction = maxRnd - 1;
             }
         }
         else if (direction == 3 || direction == 4)
@@ -98,11 +98,11 @@ public class Level_Genration : MonoBehaviour
                 minRnd = 3;
                 direction = 3;
                 rotate = 180;
-                
+
             }
             else
             {
-                direction = maxRnd-1;
+                direction = maxRnd - 1;
             }
         }
         if (direction == maxRnd - 1)
@@ -139,8 +139,8 @@ public class Level_Genration : MonoBehaviour
         {
             if (transform.position.x <= maxX)
             {
-              
-              
+
+
                 next = 1;
                 maxRnd = 4;
 
@@ -154,8 +154,8 @@ public class Level_Genration : MonoBehaviour
         {
             if (transform.position.x >= minX)
             {
-               
-              
+
+
                 minRnd = 3;
                 next = 3;
 
@@ -169,14 +169,14 @@ public class Level_Genration : MonoBehaviour
         {
             if (transform.position.y > minY)
             {
-             
+
                 maxRnd = 6;
                 minRnd = 1;
                 next = 5;
             }
             else
             {
-                
+
                 Debug.Log("lenght:" + FindObjectsOfType<EnemyAI>().Length);
                 foreach (var item in FindObjectsOfType<EnemyAI>())
                 {
@@ -204,29 +204,29 @@ public class Level_Genration : MonoBehaviour
         ///////////////////////////////////////////////////////////////////////////////////////////////   
 
 
-      if (maxRnd - 1 == direction && maxRnd - 1 > next )
-      {
-          Instantiate(RoomTypes[0], transform.position, Quaternion.identity);
-          enemySpawn.Add(transform.position);
+        if (maxRnd - 1 == direction && maxRnd - 1 > next)
+        {
+            Instantiate(RoomTypes[0], transform.position, Quaternion.identity);
+            enemySpawn.Add(transform.position);
             AstarPath.active.Scan();
-      }
-      else if (maxRnd - 1 > direction && maxRnd - 1 == next)
-      {
-          Instantiate(RoomTypes[3], transform.position, Quaternion.Euler(0, rotate, 0));
-      }
-      else if (maxRnd - 1 == direction && maxRnd - 1 == next)
-      {
+        }
+        else if (maxRnd - 1 > direction && maxRnd - 1 == next)
+        {
+            Instantiate(RoomTypes[3], transform.position, Quaternion.Euler(0, rotate, 0));
+        }
+        else if (maxRnd - 1 == direction && maxRnd - 1 == next)
+        {
 
             Instantiate(RoomTypes[1], transform.position, Quaternion.identity);
-      }
-      else if (maxRnd - 1 > direction && maxRnd - 1 > next)
-      {
-            Instantiate(RoomTypes[2], transform.position, Quaternion.Euler(0,rotate,0));
-      }
-      else
-      {
-            Instantiate(RoomTypes[0], transform.position, Quaternion.Euler(0,180,0));
-      }
+        }
+        else if (maxRnd - 1 > direction && maxRnd - 1 > next)
+        {
+            Instantiate(RoomTypes[2], transform.position, Quaternion.Euler(0, rotate, 0));
+        }
+        else
+        {
+            Instantiate(RoomTypes[0], transform.position, Quaternion.Euler(0, 180, 0));
+        }
 
         Instantiate(RoomInteriors[Random.Range(0, RoomInteriors.Length - 1)], transform.position, Quaternion.identity);
         AstarPath.active.Scan();
