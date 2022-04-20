@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +29,7 @@ public class Movement : MonoBehaviour
 
     bool jump = false;
     bool dash = false;
+    
 
     public ParticleSystem runningParticles;
     // Start is called before the first frame update
@@ -50,28 +52,38 @@ public class Movement : MonoBehaviour
         }
         horizontalMove = Input.GetAxisRaw("Horizontal")*Speed;
 
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetBool("Jump", true);
-          
+            jump = true;
+
         }
+
+
 
         if (rigidbody.velocity.y < -0.1)
         {
             animator.SetBool("Falling", true);
             animator.SetBool("Jump", false);
+           
 
         }
         else 
         {
             animator.SetBool("Falling", false);
+            jump = false;
         }
+
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             dash = true;
             animator.SetTrigger("Dash");
         }
+
+
+
         if (Time.time>=nextAttackTime)
         {
             if (Input.GetKeyDown(KeyCode.Mouse1))
@@ -103,6 +115,10 @@ public class Movement : MonoBehaviour
 
     public void Attack()
     {
+        if (jump == true)
+        {
+            AirAttack();
+        }
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
             foreach (var enemy in hitEnemies)
             {
@@ -111,6 +127,12 @@ public class Movement : MonoBehaviour
             animator.SetTrigger("Attack");
         
     }
+
+    private void AirAttack()
+    {
+        
+    }
+
     public void Heal(float healingAmount)
     {
         if (currentHealth+healingAmount>=MaxHealth)

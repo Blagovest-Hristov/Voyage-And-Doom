@@ -38,7 +38,6 @@ public class Enemy : MonoBehaviour
         {
             GetComponent<EnemyAI>().enabled = true;
         
-
         }
         else
         { 
@@ -67,13 +66,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator WaitAttack()
     {
-        
-            Debug.Log("Started Coroutine at timestamp : " + Time.time);
-
-            yield return new WaitForSeconds(0.35f);
-
-            Debug.Log("Finished Coroutine at timestamp : " + Time.time);
-        
+            yield return new WaitForSeconds(1f);
     }
     void OnDrawGizmos()
     {
