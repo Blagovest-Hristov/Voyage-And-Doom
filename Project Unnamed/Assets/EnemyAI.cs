@@ -19,6 +19,7 @@ public class EnemyAI : MonoBehaviour
     Rigidbody2D rb;
     void Start()
     {
+        Target = GameObject.Find("Character (1) Variant(Clone)").transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 

@@ -34,6 +34,7 @@ public class Level_Genration : MonoBehaviour
     private List<Vector2> enemySpawn = new List<Vector2>();
     void Start()
     {
+        character = GameObject.Find("Character (1) Variant(Clone)");
         minX = startingPos[0].position.x;
         maxX = startingPos[3].position.x;
         minY = startingPos[0].position.y - 45;

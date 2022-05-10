@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/NOIT.unity
     guid: bce21bfbabc64d14784873e1af6566ba
+  - enabled: 1
+    path: Assets/Lobby.unity
+    guid: 77be7aea39460b24a8a3719b3f70d6e6
+  - enabled: 1
+    path: Assets/LoadingScene.unity
+    guid: 68b52de48e13cf8408147bd98cb1d515
+  - enabled: 1
+    path: Assets/MultiplayerScene.unity
+    guid: 043b611409bd5e444957fdf0333b3b84
   m_configObjects: {}

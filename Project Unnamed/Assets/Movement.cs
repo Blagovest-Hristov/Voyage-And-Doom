@@ -35,6 +35,8 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        healthbar = GameObject.Find("/Canvas/Health Bar(1)").GetComponent<Slider>();
+        popUp = GameObject.Find("/Canvas/PopUp");
         currentHealth = MaxHealth;
 
         healthbar.GetComponent<SetHealth>().setMaxHealth(MaxHealth);
