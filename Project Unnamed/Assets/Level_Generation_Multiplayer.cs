@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using Photon.Pun;
 
 
 public class Level_Genration_Multiplayer : MonoBehaviour
@@ -16,6 +17,7 @@ public class Level_Genration_Multiplayer : MonoBehaviour
     public GameObject enemy;
     public GameObject final;
 
+    public string seed;
 
     private int direction;
     public float moveAmountX;
@@ -40,6 +42,7 @@ public class Level_Genration_Multiplayer : MonoBehaviour
         transform.position = new Vector3(0, 0, 33);
         int randStartingPos = Random.Range(0, startingPos.Length);
         Instantiate(spawn, startingPos[randStartingPos].position, Quaternion.Euler(0, 180, 0));
+        seed += randStartingPos;
         character.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         character.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         Instantiate(pathfinder, transform.position, Quaternion.identity);
@@ -51,6 +54,7 @@ public class Level_Genration_Multiplayer : MonoBehaviour
         direction = 1;
         transform.position = startingPos[randStartingPos].position;
         next = Random.Range(1, 4);
+        seed += next;
     }
 
     private void Update()
@@ -119,7 +123,6 @@ public class Level_Genration_Multiplayer : MonoBehaviour
             {
                 AstarPath.active.Scan();
 
-                Debug.Log(GetComponents<EnemyAI>().Length);
                 foreach (var item in GetComponents<EnemyAI>())
                 {
                     item.Target = character.transform;
@@ -209,23 +212,33 @@ public class Level_Genration_Multiplayer : MonoBehaviour
             Instantiate(RoomTypes[0], transform.position, Quaternion.identity);
             enemySpawn.Add(transform.position);
             AstarPath.active.Scan();
+            seed += next;
+
         }
         else if (maxRnd - 1 > direction && maxRnd - 1 == next)
         {
             Instantiate(RoomTypes[3], transform.position, Quaternion.Euler(0, rotate, 0));
+            seed += next;
+
         }
         else if (maxRnd - 1 == direction && maxRnd - 1 == next)
         {
 
             Instantiate(RoomTypes[1], transform.position, Quaternion.identity);
+            seed += next;
+
         }
         else if (maxRnd - 1 > direction && maxRnd - 1 > next)
         {
             Instantiate(RoomTypes[2], transform.position, Quaternion.Euler(0, rotate, 0));
+            seed += next;
+
         }
         else
         {
             Instantiate(RoomTypes[0], transform.position, Quaternion.Euler(0, 180, 0));
+            seed += next;
+
         }
 
         Instantiate(RoomInteriors[Random.Range(0, RoomInteriors.Length - 1)], transform.position, Quaternion.identity);
@@ -235,6 +248,6 @@ public class Level_Genration_Multiplayer : MonoBehaviour
         prev = direction;
         direction = next;
         next = Random.Range(minRnd, maxRnd);
-        Debug.Log(next);
+        Debug.Log("SEED" + seed);
     }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
 public class Movement : MonoBehaviour
 {
@@ -29,20 +30,28 @@ public class Movement : MonoBehaviour
 
     bool jump = false;
     bool dash = false;
-    
+
+    public PhotonView view;
 
     public ParticleSystem runningParticles;
     // Start is called before the first frame update
     private void Start()
     {
-        healthbar = GameObject.Find("/Canvas/Health Bar(1)").GetComponent<Slider>();
-        popUp = GameObject.Find("/Canvas/PopUp");
+        healthbar = GameObject.Find("Canvas/HealthBar(1)").GetComponent<Slider>();
+        popUp = GameObject.Find("Canvas/PopUp");
         currentHealth = MaxHealth;
-
+        view = GetComponent<PhotonView>();
         healthbar.GetComponent<SetHealth>().setMaxHealth(MaxHealth);
     }
-    void Update()
+    void Update() 
     {
+        if (PhotonNetwork.IsConnected)
+        {
+            if (!view.IsMine)
+            {
+                return;
+            }
+        }
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         if (Mathf.Abs(horizontalMove) != 0  && Controller.m_Grounded == true)
         {

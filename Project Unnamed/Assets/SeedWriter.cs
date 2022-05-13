@@ -4,7 +4,7 @@ using UnityEngine;
 using Pathfinding;
 
 
-public class Level_Genration : MonoBehaviour
+public class SeedWriter : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform[] startingPos;
@@ -16,9 +16,9 @@ public class Level_Genration : MonoBehaviour
     public GameObject enemy;
     public GameObject final;
 
-    public string seed = "";
-
     private GameObject parentOfStructure;
+
+    public string seed = " "; 
 
     private int direction;
     public float moveAmountX;
@@ -44,11 +44,9 @@ public class Level_Genration : MonoBehaviour
         minY = startingPos[0].position.y - 45;
         transform.position = new Vector3(0, 0, 33);
         int randStartingPos = Random.Range(0, startingPos.Length);
-        Instantiate(spawn, startingPos[randStartingPos].position, Quaternion.Euler(0, 180, 0));
+        //Instantiate(spawn, startingPos[randStartingPos].position, Quaternion.Euler(0, 180, 0));
         seed += randStartingPos;
-        character.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-        character.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-        Instantiate(pathfinder, transform.position, Quaternion.identity);
+      
 
         a = startingPos[randStartingPos];
 
@@ -56,7 +54,7 @@ public class Level_Genration : MonoBehaviour
 
         direction = 1;
         transform.position = startingPos[randStartingPos].position;
-        next = Random.Range(1, 3);
+        next = Random.Range(1, 4);
         seed += next;
     }
 
@@ -126,8 +124,11 @@ public class Level_Genration : MonoBehaviour
             {
                 AstarPath.active.Scan();
 
-               
-                
+                foreach (var item in GetComponents<EnemyAI>())
+                {
+                    item.Target = character.transform;
+                }
+
                 AstarPath.active.Scan();
 
 
@@ -182,14 +183,12 @@ public class Level_Genration : MonoBehaviour
                 {
                     item.Target = character.transform;
                 }
-                foreach (var item in GetComponents<EnemyAI>())
-                {
-                    item.Target = character.transform;
-                }
+
                 foreach (var item in enemySpawn)
                 {
                     Instantiate(enemy, item, Quaternion.identity);
                 }
+                AstarPath.active.Scan();
 
                 while (a.position != character.transform.position)
                 {
@@ -209,31 +208,25 @@ public class Level_Genration : MonoBehaviour
         if (maxRnd - 1 == direction && maxRnd - 1 > next)
         {
             Instantiate(RoomTypes[0], transform.position, Quaternion.identity, parentOfStructure.transform);
-            seed += next;
             enemySpawn.Add(transform.position);
-
             AstarPath.active.Scan();
         }
         else if (maxRnd - 1 > direction && maxRnd - 1 == next)
         {
             Instantiate(RoomTypes[3], transform.position, Quaternion.Euler(0, rotate, 0), parentOfStructure.transform);
-            seed += next;
         }
         else if (maxRnd - 1 == direction && maxRnd - 1 == next)
         {
 
             Instantiate(RoomTypes[1], transform.position, Quaternion.identity, parentOfStructure.transform);
-            seed += next;
         }
         else if (maxRnd - 1 > direction && maxRnd - 1 > next)
         {
             Instantiate(RoomTypes[2], transform.position, Quaternion.Euler(0, rotate, 0), parentOfStructure.transform);
-            seed += next;
         }
         else
         {
             Instantiate(RoomTypes[0], transform.position, Quaternion.Euler(0, 180, 0), parentOfStructure.transform);
-            seed += next;
         }
 
         Instantiate(RoomInteriors[Random.Range(0, RoomInteriors.Length - 1)], transform.position, Quaternion.identity, parentOfStructure.transform);
@@ -243,7 +236,6 @@ public class Level_Genration : MonoBehaviour
         prev = direction;
         direction = next;
         next = Random.Range(minRnd, maxRnd);
-        Debug.Log("SEED" + seed);
-       
+
     }
 }
